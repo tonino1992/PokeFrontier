@@ -1,0 +1,159 @@
+{
+  "profile": "live ×1",
+  "scenario": "Solo produzione passiva; nessun reddito da missioni; nessun pagamento o acceleratore.",
+  "milestones": {
+    "hq2Minutes": 10,
+    "basicCaptureMinutes": 371,
+    "captureTechnologyMinutes": 1408,
+    "firstCraftedBallMinutes": 636
+  },
+  "steps": [
+    {
+      "action": "building",
+      "id": "quarry",
+      "level": 2,
+      "minutes": 2.4
+    },
+    {
+      "action": "building",
+      "id": "farm",
+      "level": 2,
+      "minutes": 4.6
+    },
+    {
+      "action": "building",
+      "id": "hq",
+      "level": 2,
+      "minutes": 10.4
+    },
+    {
+      "action": "building",
+      "id": "generator",
+      "level": 2,
+      "minutes": 67.2
+    },
+    {
+      "action": "building",
+      "id": "refinery",
+      "level": 1,
+      "minutes": 164.7
+    },
+    {
+      "action": "building",
+      "id": "lab",
+      "level": 1,
+      "minutes": 294
+    },
+    {
+      "action": "building",
+      "id": "habitat",
+      "level": 1,
+      "minutes": 367
+    },
+    {
+      "action": "research",
+      "id": "ecology",
+      "level": 1,
+      "minutes": 370.8
+    },
+    {
+      "action": "building",
+      "id": "workshop",
+      "level": 1,
+      "minutes": 622.3
+    },
+    {
+      "action": "research",
+      "id": "energy",
+      "level": 1,
+      "minutes": 783
+    },
+    {
+      "action": "building",
+      "id": "lab",
+      "level": 2,
+      "minutes": 1149.6
+    },
+    {
+      "action": "research",
+      "id": "capture",
+      "level": 1,
+      "minutes": 1408
+    }
+  ],
+  "energyExamples": [
+    {
+      "generator": 1,
+      "produced": 31,
+      "consumed": 97,
+      "balance": -66,
+      "factor": 0.31958762886597936,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    },
+    {
+      "generator": 2,
+      "produced": 69,
+      "consumed": 97,
+      "balance": -28,
+      "factor": 0.711340206185567,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    },
+    {
+      "generator": 3,
+      "produced": 114,
+      "consumed": 97,
+      "balance": 17,
+      "factor": 1,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    },
+    {
+      "generator": 4,
+      "produced": 167,
+      "consumed": 97,
+      "balance": 70,
+      "factor": 1,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    },
+    {
+      "generator": 5,
+      "produced": 230,
+      "consumed": 97,
+      "balance": 133,
+      "factor": 1,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    },
+    {
+      "generator": 6,
+      "produced": 304,
+      "consumed": 97,
+      "balance": 207,
+      "factor": 1,
+      "byPlant": {
+        "quarry": 36.300000000000004,
+        "farm": 29.040000000000006,
+        "refinery": 30.800000000000004
+      }
+    }
+  ],
+  "limits": "Una simulazione di raggiungibilità e tempi iniziali, non una validazione del bilanciamento competitivo o del comportamento dei giocatori."
+}

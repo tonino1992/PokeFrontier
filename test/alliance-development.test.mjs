@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {CampaignGame} from '../campaign.mjs';
+
+test('due donatori sbloccano vantaggi condivisi e il progresso sopravvive al riavvio',()=>{
+ const game=new CampaignGame();
+ const {p:first}=game.create('Aurora','bulbasaur');
+ const {p:second}=game.create('Boreale','squirtle');
+ const now=second.updated;
+ const donate=(p,resource,quantity)=>game.command(p,{type:'allianceDonate',resource,quantity},now);
+ assert.throws(()=>donate(first,'materials',10),/alleanza/);
+ game.command(first,{type:'alliance',action:'create',name:'Ricerca comune'},now);
+ game.command(second,{type:'alliance',action:'join',id:first.alliance},now);
+ second.buildings.lab=1;
+ const research=game.duration('research',second,'ecology');
+ const load=game.gatherUnitLoad(second);
+ const travel=game.playerMarket.travelTime(second,first);
+ first.resources.materials=1000;
+ assert.throws(()=>donate(first,'materials',11),/multipli/);
+ assert.equal(first.resources.materials,1000);
+ donate(first,'materials',1000);
+ assert.equal(first.resources.materials,0);
+ assert.ok(game.duration('research',second,'ecology')<research);
+ second.resources.reagents=2750;
+ donate(second,'reagents',1000);
+ assert.equal(game.gatherUnitLoad(second),load*1.1);
+ donate(second,'reagents',1750);
+ assert.ok(game.playerMarket.travelTime(second,first)<travel);
+ assert.throws(()=>donate(first,'food',10),/tutti i vantaggi/);
+ const restored=new CampaignGame(JSON.parse(JSON.stringify(game.serialize())));
+ const state=restored.snapshot(restored.players[first.id]).allianceDevelopment;
+ assert.deepEqual({level:state.level,points:state.points,personal:state.personal},{level:3,points:650,personal:100});
+ assert.equal(restored.snapshot(restored.players[second.id]).allianceDevelopment.personal,550);
+});
